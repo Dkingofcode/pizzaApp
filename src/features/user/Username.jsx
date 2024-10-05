@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import { useSelector } from 'react-redux';
 
 export default function Username() {
@@ -9,7 +9,9 @@ export default function Username() {
   
   return (
     <div className='hidden text-sm font-semibold md:block'>
-       David     
+       {username}    
     </div>
   )
 }
+
+

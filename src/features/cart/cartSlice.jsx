@@ -13,9 +13,10 @@ const cartSlice = createSlice({
           state.cart.push(action.payload);
         },
         deleteItem(state, action) {
-           console.log('Click')
-        state.cart = state.cart.filter((item) => item.id !== action.payload);
-       },
+         console.log(state.cart);
+        state.cart = state.cart.filter((item) => item.pizzaId !== action.payload);
+        console.log(state.cart);   
+    },
        increaseItemQuantity(state, action) {
         const item = state.cart.find((item) => item.pizzaId === action.payload);
 

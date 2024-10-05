@@ -1,8 +1,10 @@
 import { useFetcher } from 'react-router-dom';
 import Button from '../../ui/Button';
 import { updateOrder } from '../../services/apiRestaurant';
+import PropTypes from "prop-types";
 
-function UpdateOrder({ order }) {
+
+function UpdateOrder() {
   const fetcher = useFetcher();
 
   return (
@@ -12,9 +14,15 @@ function UpdateOrder({ order }) {
   );
 }
 
+//console.log(order);
+
+UpdateOrder.propTypes = {
+    order: PropTypes.object.isRequired, // Define the shape of 'order' as per your data structure
+};
+
 export default UpdateOrder;
 
-export async function action({ request, params }) {
+export async function action({  params }) {
   const data = { priority: true };
   await updateOrder(params.orderId, data);
   return null;

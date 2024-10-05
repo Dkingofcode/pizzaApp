@@ -306,7 +306,7 @@ export async function action({ request }) {
     priority: data.priority === 'true',
   };
 
-  console.log(order);
+  //console.log(order);
 
   const errors = {};
   if (!isValidPhone(order.phone))
@@ -317,6 +317,7 @@ export async function action({ request }) {
 
   // If everything is okay, create new order and redirect
   const newOrder = await createOrder(order);
+  console.log(newOrder);
 
   // Do NOT overuse
   store.dispatch(clearCart());

@@ -18,6 +18,7 @@ export async function getOrder(id) {
     if(!res.ok) throw Error(`Couldn't find order #${id}`);
 
     const { data } = await res.json();
+    console.log("Order successful");
     return data;
 }
 
@@ -30,10 +31,10 @@ export async function createOrder(newOrder) {
               "Content-Type": "application/json",
          },
         });
-        console.log(res);
-        console.log("Order Created");
+        //console.log(res);
         if(!res.ok) throw Error();
-        const {data} = res.json();
+        const {data} = await res.json();
+        console.log("Order Created");
         return data;
     }catch(err){
         console.log(err);

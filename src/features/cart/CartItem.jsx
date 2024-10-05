@@ -1,9 +1,10 @@
 import {formatCurrency} from "../../utils/helpers"; 
-import Button from "../../ui/Button";
+//import Button from "../../ui/Button";
 import DeleteItem from "./DeleteItem";
 import UpdateItemQuantity from "./UpdateItemQuantity";
 import { useSelector } from "react-redux";
 import { getCurrentQuantityById } from "./cartSlice";
+import PropTypes from "prop-types";
 
 function CartItem({ item }) {
     const { pizzaId, name, quantity, totalPrice } = item;
@@ -24,5 +25,16 @@ function CartItem({ item }) {
         </li>
     );
 }
+
+CartItem.propTypes = {
+    item: PropTypes.shape({
+        pizzaId: PropTypes.number.isRequired,
+        name:  PropTypes.string.isRequired,
+        quantity:  PropTypes.number.isRequired,
+        totalPrice:  PropTypes.number.isRequired,
+    }).isRequired,
+}
+
+
 
 export default CartItem;
